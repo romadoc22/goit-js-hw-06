@@ -1,4 +1,4 @@
-const printName = document.querySelector(
+const refs = document.querySelector(
   "#name-input"
 );
 
@@ -6,13 +6,10 @@ const getName = document.querySelector(
   "#name-output"
 );
 
-// getName.addEventListener(`input`, event) = printName.textContent =
-//   event.currentTarget.value === ""
-//     ? "Anonymous"
-//     : event.currentTarget.value;
-
-if (event.currentTarget.value === "") {
-  printName.textContent = "Anonymous";
-  return;
+function onInputEvent(event) {
+  refs.nameLabel.textContent =
+    event.currentTarget.value === ""
+      ? "Anonymous"
+      : event.currentTarget.value;
 }
-printName.textContent = event.currentTarget.value;
+getName.textContent = event.currentTarget.value;

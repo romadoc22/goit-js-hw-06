@@ -1,5 +1,5 @@
 const input = document.querySelector(
-  "validation-input"
+  "#validation-input"
 );
 
 const countSymbol = (event) => {
