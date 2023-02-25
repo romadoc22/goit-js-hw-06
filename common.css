@@ -2,11 +2,11 @@
   border: 3px solid #bdbdbd;
 }
 
-.valid {
+#validation-input.valid {
   border-color: #4caf50;
 }
 
-.invalid {
+#validation-input.invalid {
   border-color: #f44336;
 }
 

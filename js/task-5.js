@@ -6,7 +6,7 @@
 //   "#name-output"
 // );
 
-refs = {
+const refs = {
   nameLabel: document.querySelector(
     "#name-input"
   ),
@@ -19,8 +19,8 @@ refs.nameLabel.addEventListener(
 );
 
 function onInputEvent(event) {
-  refs.nameLabel.textContent =
+  refs.getName.textContent =
     event.currentTarget.value === ""
       ? "Anonymous"
-      : refs.getName.currentTarget.value;
+      : event.currentTarget.value;
 }
