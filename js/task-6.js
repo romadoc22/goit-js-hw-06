@@ -1,18 +1,15 @@
-const input = document.querySelector(
+const getText = document.querySelector(
   "#validation-input"
 );
-
-const countSymbol = (event) => {
+getText.addEventListener("blur", (event) => {
   if (
     event.currentTarget.value.length ===
-    Number(input.dataset.length)
+    Number(getText.dataset.length)
   ) {
-    input.classList.remove("invalid");
-    input.classList.add("valid");
+    getText.classList.remove("invalid");
+    getText.classList.add("valid");
   } else {
-    input.classList.remove("valid");
-    input.classList.add("invalid");
+    getText.classList.remove("valid");
+    getText.classList.add("invalid");
   }
-};
-
-input.addEventListener(`blur`, countSymbol);
+});
