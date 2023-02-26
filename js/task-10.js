@@ -31,11 +31,9 @@ refs.btnDestroy.addEventListener(
   "click",
   destroyBoxes
 );
-
 function onBtnCreateClickHandler() {
   createBoxes(refs.getInput.value);
 }
-
 // Функції
 const createBoxes = (amount) => {
   let arrayDiv = [];
@@ -56,4 +54,7 @@ function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215)
     .toString(16)
     .padStart(6, 0)}`;
+}
+function destroyBoxes() {
+  boxes.remove();
 }
