@@ -38,7 +38,7 @@ function onBtnCreateClickHandler() {
 const createBoxes = (amount) => {
   let arrayDiv = [];
 
-  for (let i = 0; i <= amount; i += 1) {
+  for (let i = 0; i < amount; i += 1) {
     let div = document.createElement("div");
 
     div.style.height = `${20 + i * 10}px`;
@@ -56,5 +56,5 @@ function getRandomHexColor() {
     .padStart(6, 0)}`;
 }
 function destroyBoxes() {
-  boxes.remove();
+  boxes.innerHTML = "";
 }
