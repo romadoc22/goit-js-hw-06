@@ -1,15 +1,3 @@
-// Завдання 10 (виконувати не обов'язково)
-// Напиши скрипт створення і очищення колекції елементів. Користувач вводить кількість елементів в input і натискає кнопку Створити, після чого рендериться колекція. Натисненням на кнопку Очистити, колекція елементів очищається.
-
-// Створи функцію createBoxes(amount), яка приймає один параметр - число. Функція створює стільки <div>, скільки вказано в amount і додає їх у div#boxes.
-
-// Розміри найпершого <div> - 30px на 30px.
-// Кожен елемент після першого повинен бути ширшим і вищим від попереднього на 10px.
-// Всі елементи повинні мати випадковий колір фону у форматі HEX. Використовуй готову функцію getRandomHexColor для отримання кольору.
-//
-
-// Створи функцію destroyBoxes(), яка очищає вміст div#boxes, у такий спосіб видаляючи всі створені елементи.
-
 const refs = {
   getInput: document.querySelector("input"),
   btnCreate: document.querySelector(
@@ -29,16 +17,18 @@ refs.getInput.addEventListener(
 );
 refs.btnCreate.addEventListener(
   "click",
-  createBoxes
+  onBtnCreateClickHandler
 );
-// refs.btnDestroy.addEventListener(
-//   "click",
-//   destroyBoxes
-// );
+refs.btnDestroy.addEventListener(
+  "click",
+  destroyBoxes
+);
 
-let startBoxWidth = 30;
-let starBoxHeight = 30;
+function onBtnCreateClickHandler() {
+  createBoxes(refs.input.value);
+}
 
+let amount = refs.getInput.value;
 // Функції
 
 function getBoxAmount(event) {
@@ -48,21 +38,21 @@ function getBoxAmount(event) {
   );
 }
 
-function createBoxes(amount) {
-  let amountBoxes =
-    refs.getInput.getAttribute("amount");
-  for (let i = 0; i < amountBoxes; i += 1) {
-    startBoxWidth += 10;
-    starBoxHeight += 10;
+const createBoxes = (amount) => {
+  let arrayDiv = [];
 
-    const box = document.createElement("div");
-    box.style.width = "${startBoxWidth}";
-    box.style.height = "${starBoxHeight}";
-    box.classList.add("box");
-    box.style.background = getRandomHexColor();
+  for (let i = 0; i <= amount; i += 1) {
+    let div = document.createElement("div");
+
+    div.style.height = `${20 + i * 10}px`;
+    div.style.width = `${20 + i * 10}px`;
+    div.style.background = getRandomHexColor();
+
+    div.append(i);
+    arrayDiv.push(div);
   }
-  boxes.push(box);
-}
+  boxes.append(...arrayDiv);
+};
 
 function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215)
