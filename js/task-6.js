@@ -4,7 +4,7 @@ const input = document.querySelector(
 input.addEventListener("blur", (event) => {
   if (
     event.currentTarget.value.length ===
-    Number(getText.dataset.length)
+    Number(input.dataset.length)
   ) {
     input.classList.remove("invalid");
     input.classList.add("valid");
